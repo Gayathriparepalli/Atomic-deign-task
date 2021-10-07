@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../Components/Header";
 import ContactInfo from "../Components/ContactInfo";
+import ContactLink from "../Components/ContactLink";
+import InputField from "../Components/InputField";
 const Contact = () => {
   const cData = [
     {
@@ -17,6 +19,30 @@ const Contact = () => {
       title: "Contact Info",
       para1: "Phone: +1 123 456 1234",
       para2: "Email: info@company.com",
+    },
+  ];
+  const social = [
+    {
+      id: 1,
+      name: "fa fa-facebook",
+    },
+    {
+      id: 2,
+      name: "fa fa-twitter",
+    },
+    {
+      id: 3,
+      name: "fa fa-google-plus",
+    },
+  ];
+  const form = [
+    {
+      id: "name",
+      placeholder: "Name",
+    },
+    {
+      id: "email",
+      placeholder: "Email",
     },
   ];
   return (
@@ -42,30 +68,9 @@ const Contact = () => {
           <h3>Leave us a message</h3>
           <form name="sentMessage" id="contactForm" novalidate>
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="name"
-                    class="form-control"
-                    placeholder="Name"
-                    required="required"
-                  />
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input
-                    type="email"
-                    id="email"
-                    class="form-control"
-                    placeholder="Email"
-                    required="required"
-                  />
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
+              {form.map((val) => {
+                return <InputField name={val["placeholder"]} id={val["id"]} />;
+              })}
             </div>
             <div class="form-group">
               <textarea
@@ -90,21 +95,9 @@ const Contact = () => {
           <div class="col-md-8 col-md-offset-2">
             <div class="social">
               <ul>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-google-plus"></i>
-                  </a>
-                </li>
+                {social.map((val) => {
+                  return <ContactLink name={val["name"]} />;
+                })}
               </ul>
             </div>
             <p>
@@ -114,7 +107,8 @@ const Contact = () => {
               </a>
             </p>
           </div>
-        </div>
+        </div>{" "}
+        *
       </div>
     </div>
   );
