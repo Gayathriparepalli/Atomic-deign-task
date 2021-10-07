@@ -2,6 +2,16 @@ import React from "react";
 import NavBar from "./NavBar";
 import AboutImg from "../Components/AboutImg";
 const About = () => {
+  const aboutImg = [
+    {
+      src: "img/about-1.jpg",
+      title: "Garden Care",
+    },
+    {
+      src: "img/about-2.jpg",
+      title: "Lawn Care",
+    },
+  ];
   return (
     <div id="about">
       <div class="container">
@@ -30,7 +40,9 @@ const About = () => {
               </a>
             </div>
           </div>
-          <AboutImg />
+          {aboutImg.map((val) => {
+            return <AboutImg src={val["src"]} title={val["title"]} />;
+          })}
         </div>
       </div>
     </div>

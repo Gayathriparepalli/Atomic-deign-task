@@ -2,6 +2,23 @@ import React from "react";
 import Header from "../Components/Header";
 import ContactInfo from "../Components/ContactInfo";
 const Contact = () => {
+  const cData = [
+    {
+      title: "Address",
+      para1: "4321 California St,",
+      para2: "San Francisco, CA 12345",
+    },
+    {
+      title: "Working Hours",
+      para1: "Monday-Saturday: 07:00 - 18:00",
+      para2: "Sunday: CLOSED",
+    },
+    {
+      title: "Contact Info",
+      para1: "Phone: +1 123 456 1234",
+      para2: "Email: info@company.com",
+    },
+  ];
   return (
     <div id="contact" class="text-center">
       <div class="container">
@@ -10,8 +27,17 @@ const Contact = () => {
           paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
             dapibus leonec."
         />
-        <ContactInfo />
-
+        <div class="col-md-10 col-md-offset-1 contact-info">
+          {cData.map((val) => {
+            return (
+              <ContactInfo
+                title={val["title"]}
+                para1={val["para1"]}
+                para2={val["para2"]}
+              />
+            );
+          })}
+        </div>
         <div class="col-md-8 col-md-offset-2" style={{ marginBottom: 50 }}>
           <h3>Leave us a message</h3>
           <form name="sentMessage" id="contactForm" novalidate>
