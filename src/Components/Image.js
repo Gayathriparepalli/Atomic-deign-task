@@ -14,7 +14,6 @@ const AboutImg = (props) => {
           </p>
         </div>
       </div>
-      );
     </div>
   );
 };

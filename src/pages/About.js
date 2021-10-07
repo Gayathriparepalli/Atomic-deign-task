@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
-import AboutImg from "../Components/AboutImg";
+import AboutImg from "../Components/Image";
 const About = () => {
   const aboutImg = [
     {

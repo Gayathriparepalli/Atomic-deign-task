@@ -1,7 +1,29 @@
 import React from "react";
 import Header from "../Components/Header";
-import ServicesImg from "../Components/ServicesImg";
+import AboutImg from "../Components/Image";
 const Services = () => {
+  const data = [
+    {
+      id: 1,
+      src: "img/services/service-1.jpg",
+      title: "Lawn Care",
+    },
+    {
+      id: 2,
+      src: "img/services/service-2.jpg",
+      title: "Landscape Design",
+    },
+    {
+      id: 3,
+      src: "img/services/service-3.jpg",
+      title: "Tree Care",
+    },
+    {
+      id: 4,
+      src: "img/services/service-4.jpg",
+      title: "Spring & Fall Cleanup",
+    },
+  ];
   return (
     <div id="services">
       <div class="container">
@@ -11,7 +33,9 @@ const Services = () => {
             dapibus leonec."
         />
         <div class="row">
-          <ServicesImg />
+          {data.map((val) => {
+            return <AboutImg src={val["src"]} title={val["title"]} />;
+          })}
         </div>
       </div>
     </div>
